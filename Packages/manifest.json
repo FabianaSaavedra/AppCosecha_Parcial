@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.google.xr.cardboard": "file:C:/Users/csalad14/Documents/55823511_Unity/cardboard-xr-plugin-1.19.0/cardboard-xr-plugin-1.19.0",
+    "com.google.xr.cardboard": "file:C:/Users/mafab/Downloads/CardBoard Version 19-20260925/cardboard-xr-plugin-1.19.0/cardboard-xr-plugin-1.19.0",
     "com.unity.ai.navigation": "2.0.10",
     "com.unity.collab-proxy": "2.11.3",
     "com.unity.ide.rider": "3.0.39",

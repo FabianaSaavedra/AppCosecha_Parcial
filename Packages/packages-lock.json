@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.google.xr.cardboard": {
-      "version": "file:C:/Users/csalad14/Documents/55823511_Unity/cardboard-xr-plugin-1.19.0/cardboard-xr-plugin-1.19.0",
+      "version": "file:C:/Users/mafab/Downloads/CardBoard Version 19-20260925/cardboard-xr-plugin-1.19.0/cardboard-xr-plugin-1.19.0",
       "depth": 0,
       "source": "local",
       "dependencies": {
