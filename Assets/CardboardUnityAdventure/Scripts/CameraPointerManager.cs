@@ -12,7 +12,7 @@ public class CameraPointerManager : MonoBehaviour
     [SerializeField] private float disPointerObject = 0.95f;
 
 
-    private const float _maxDistance = 10;
+    private const float _maxDistance = 20;
     private GameObject _gazedAtObject = null;
 
     private readonly string interactableTag = "Interactable";
