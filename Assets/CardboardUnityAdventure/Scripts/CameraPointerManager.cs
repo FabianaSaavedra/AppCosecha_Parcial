@@ -73,6 +73,7 @@ public class CameraPointerManager : MonoBehaviour
             
             _gazedAtObject?.SendMessage("OnPointerExitXR", null, SendMessageOptions.DontRequireReceiver);
             _gazedAtObject = null;
+            PointerOutGaze();
         }
 
         
