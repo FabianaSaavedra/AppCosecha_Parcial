@@ -1,10 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Caja que guarda VARIOS objetos cosechados (a diferencia de PlateBehaviour, que guarda solo uno).
-// Requisitos en la caja: Tag "Interactable" + un Collider.
-// Cuando el jugador lleva un objeto y mira la caja, el objeto se acomoda dentro
-// en una cuadricula y ya no se puede volver a coger.
 public class CajaCosecha : MonoBehaviour
 {
     [Header("Donde se acomodan los objetos")]
@@ -18,6 +14,8 @@ public class CajaCosecha : MonoBehaviour
     [Header("Meta")]
     [Tooltip("Cuantos objetos hay que guardar para completar la caja")]
     [SerializeField] private int totalParaCompletar = 3;
+    [Tooltip("Si esta marcado, cuando se llega a la meta ya no recibe mas objetos")]
+    [SerializeField] private bool noAceptarMasAlCompletar = true;
 
     [Header("Eventos")]
     [Tooltip("Se ejecuta cada vez que se guarda un objeto")]
@@ -39,6 +37,9 @@ public class CajaCosecha : MonoBehaviour
     // Lo llama el sistema de mirada (CameraPointerManager) al completar la seleccion
     public void OnPointerClickXR()
     {
+        // Si ya esta llena, no recibe mas (por ejemplo, un surco ya sembrado)
+        if (noAceptarMasAlCompletar && Completa) return;
+
         GameObject item = grabManager.heldItem;
         if (item == null) return;
 
