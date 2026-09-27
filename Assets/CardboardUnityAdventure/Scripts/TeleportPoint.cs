@@ -9,6 +9,7 @@ public class TeleportPoint : MonoBehaviour
     public UnityEvent OnTeleportEnter;
     public UnityEvent OnTeleport;
     public UnityEvent OnTeleportExit;
+   
 
     void Start()
     {
@@ -42,8 +43,6 @@ public class TeleportPoint : MonoBehaviour
         float rotY = transform.rotation.eulerAngles.y - camera.transform.localEulerAngles.y;
         player.transform.rotation = Quaternion.Euler(0, rotY, 0);
     }
-
-
 
 }
 
