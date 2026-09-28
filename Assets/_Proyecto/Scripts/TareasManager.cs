@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
 
+
 public class TareasManager : MonoBehaviour
 {
     [System.Serializable]
@@ -26,7 +27,7 @@ public class TareasManager : MonoBehaviour
         [HideInInspector] public bool completada;
     }
 
-    // Se guarda entre escenas para mostrarlo en la feria
+ 
     public static int MonedasGanadas;
 
     [Header("Tareas del dia (en orden)")]
@@ -95,7 +96,7 @@ public class TareasManager : MonoBehaviour
         AplicarMomento(0);
     }
 
-    
+  
     public void EmpezarRecorrido()
     {
         if (recorridoEmpezado || tareas.Length == 0) return;
@@ -128,7 +129,7 @@ public class TareasManager : MonoBehaviour
 
         if (completadas >= tareas.Length)
         {
-            // Ultima tarea: Pancho se queda y anuncia la feria
+            
             foreach (GameObject go in activarAlTerminarTodo)
                 if (go != null) go.SetActive(true);
             Decir(mensajeFinal);
@@ -136,8 +137,9 @@ public class TareasManager : MonoBehaviour
         }
         else
         {
-            // Pancho felicita, espera un momento y se va a la siguiente estacion pendiente
-            Decir("<b>+" + monedasPorTarea + " monedas</b>\n" + tareas[i].felicitacion);
+            
+            string monedas = monedasPorTarea > 0 ? "<b>+" + monedasPorTarea + " monedas</b>\n" : "";
+            Decir(monedas + tareas[i].felicitacion);
             Sonar(sonidoTareaCompletada);
 
             Tarea siguiente = SiguienteTarea();
