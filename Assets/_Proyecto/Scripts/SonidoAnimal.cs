@@ -22,7 +22,7 @@ public class SonidoAnimal : MonoBehaviour
         audioSource.rolloffMode = AudioRolloffMode.Linear;
     }
 
-    // Lo llama el sistema de mirada (CameraPointerManager) cuando la mirada toca al animal
+
     public void OnPointerEnterXR()
     {
         if (sonido == null || Time.time < proximoSonido) return;
