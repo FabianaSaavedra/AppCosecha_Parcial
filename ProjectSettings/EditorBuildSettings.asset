@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Proyecto/Scenes/03_Granja.unity
     guid: 70d12070938dd2f49a4937f903ea1453
+  - enabled: 1
+    path: Assets/_Proyecto/Scenes/04_Feria.unity
+    guid: 7d5761749efc00442ba479d577cf75a4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0eae4b046e9dec0409af658816f524b5, type: 2}
