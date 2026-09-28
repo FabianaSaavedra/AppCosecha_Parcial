@@ -445,7 +445,7 @@ MonoBehaviour:
   puntoCaja: {fileID: 1945212523}
   columnas: 3
   separacion: 0.15
-  totalParaCompletar: 15
+  totalParaCompletar: 5
   noAceptarMasAlCompletar: 1
   alGuardar:
     m_PersistentCalls:
@@ -453,29 +453,17 @@ MonoBehaviour:
   alCompletar:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 407816050}
         m_TargetAssemblyTypeName: TareasManager, Assembly-CSharp
         m_MethodName: CompletarTarea
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &330414398
 GameObject:
@@ -801,6 +789,95 @@ RectTransform:
   m_AnchoredPosition: {x: -150, y: -205}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &393226771
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99260867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.12135971
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 13.941
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 407816050}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CompletarTarea
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TareasManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391963302405241372, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_Name
+      value: TP_Arbol.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c234bda784e54243811b21156ed3255, type: 3}
 --- !u!1 &403063112
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,59 +1045,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TareasManager
   tareas:
-  - nombre: Alimentar a los caballos
+  - nombre: Mirar
     lugarPancho: {fileID: 0}
-    instruccion: "Los caballos tienen hambre. Coge la bolsa de heno que est\xE1 junto
-      al granero y ll\xE9vala al comedero"
-    felicitacion: "\xA1Barrigas felices! Ahora ve al gallinero, all\xE1 te espero"
-    activarAlCompletar:
-    - {fileID: 0}
+    instruccion: 
+    felicitacion: "\xA1Muy bien! En este juego todo se escoge as\xED: mirando"
+    activarAlCompletar: []
     completada: 0
-  - nombre: Llevar las gallinas al gallinero
+  - nombre: Moverse
     lugarPancho: {fileID: 0}
-    instruccion: "\xA1Las gallinas se escaparon! C\xF3gelas una por una y ll\xE9valas
-      al gallinero"
-    felicitacion: "\xA1Todas en casa! Ahora ve donde Lola, la vaca"
-    activarAlCompletar:
-    - {fileID: 0}
+    instruccion: "\xBFVes ese c\xEDrculo amarillo en el piso? Cada vez que veas uno,
+      m\xEDralo y te llevar\xE1 hasta all\xE1. Ve hasta el \xE1rbol."
+    felicitacion: "\xA1Perfecto! As\xED te mover\xE1s por toda la granja."
+    activarAlCompletar: []
     completada: 0
-  - nombre: "Orde\xF1ar a Lola"
+  - nombre: Coger y poner
     lugarPancho: {fileID: 0}
-    instruccion: Lola tiene leche fresquita. Coge el balde y ponlo debajo de ella.
-    felicitacion: "\xA1Qu\xE9 rica leche! Ahora vamos a los surcos a sembrar"
-    activarAlCompletar:
-    - {fileID: 0}
+    instruccion: "Para coger algo, m\xEDralo hasta que el c\xEDrculo se llene. Coge
+      un tomate del \xE1rbol y luego mira la canasta para dejarlo adentro."
+    felicitacion: "\xA1Excelente cosecha! Ahora ve a la mesa de las semillas."
+    activarAlCompletar: []
     completada: 0
-  - nombre: Sembrar las semillas
+  - nombre: Usar un objeto
     lugarPancho: {fileID: 0}
-    instruccion: Coge la bolsa de semillas de la mesa y mira cada uno de los 4 surcos
-      para sembrar.
-    felicitacion: "\xA1Bien sembrado! Ahora vamos al huerto."
-    activarAlCompletar:
-    - {fileID: 0}
-    completada: 0
-  - nombre: Cosechar los tomates
-    lugarPancho: {fileID: 0}
-    instruccion: "Recoge los 15 tomates de los \xE1rboles y ponlos en la canasta"
-    felicitacion: "\xA1Qu\xE9 cosecha! Ahora vamos a la camioneta"
-    activarAlCompletar:
-    - {fileID: 0}
-    completada: 0
-  - nombre: Cargar la camioneta
-    lugarPancho: {fileID: 0}
-    instruccion: Lleva la leche y los tomates de la mesa a la camioneta
+    instruccion: Algunas cosas se usan sobre otras. Coge la bolsa de semillas y luego
+      mira la tierra para sembrar.
     felicitacion: 
-    activarAlCompletar:
-    - {fileID: 0}
+    activarAlCompletar: []
     completada: 0
   monedasPorTarea: 0
   textoTablero: {fileID: 0}
   textoMonedas: {fileID: 0}
   pancho: {fileID: 1090822695}
   textoPancho: {fileID: 330414400}
-  mensajeInicial: "\xA1Buenos d\xEDas! Soy Pancho. Hoy es la feria y Don Tom\xE1s
-    nos necesita. Mira el tablero para ver tus tareas. \xA1Te espero donde los caballos!"
-  mensajeFinal: "\xA1Todo listo! \xA1Nos vamos a la feria!"
+  mensajeInicial: "\xA1Hola! Soy Pancho, el ayudante de Don Tom\xE1s. Antes de ir
+    a la granja te ense\xF1ar\xE9 lo b\xE1sico. Mira el bot\xF3n Empezar y qu\xE9date
+    mir\xE1ndolo: ver\xE1s un c\xEDrculo que se va llenando. Cuando se llene, el
+    bot\xF3n se activa."
+  mensajeFinal: "\xA1Aprendiste todo! Ma\xF1ana muy temprano empieza tu d\xEDa en
+    la granja. All\xE1 tendr\xE1s un tablero con todas las labores. Cuando quieras,
+    mira el bot\xF3n \xA1Vamos a la granja!"
   esperaAntesDeMover: 5
   activarAlTerminarTodo:
   - {fileID: 356458209}
@@ -1563,6 +1626,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5473569773201559785, guid: fd8e0760db14a534a89257f68a4f2a8c, type: 3}
   m_PrefabInstance: {fileID: 606797495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &714575572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99260867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.12135971
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 13.941
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947802904258617983, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 407816050}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CompletarTarea
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TareasManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308208259977119442, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391963302405241372, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+      propertyPath: m_Name
+      value: TP_Siembra
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c234bda784e54243811b21156ed3255, type: 3}
+--- !u!1 &750090162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4450650326740137264, guid: 20e9d9d21411d9640b6acbb0ec9bad52, type: 3}
+  m_PrefabInstance: {fileID: 2265274770927145580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &907692933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1935,7 +2092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e6f3ce4eb3cf643bd950dbe858dde6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportManager
-  Player: {fileID: 0}
+  Player: {fileID: 750090162}
 --- !u!4 &1073793592
 Transform:
   m_ObjectHideFlags: 0
@@ -2219,14 +2376,26 @@ MonoBehaviour:
   alSembrar:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContadorLabor, Assembly-CSharp
-        m_MethodName: Sumar
+      - m_Target: {fileID: 407816050}
+        m_TargetAssemblyTypeName: TareasManager, Assembly-CSharp
+        m_MethodName: CompletarTarea
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 907692936}
+        m_TargetAssemblyTypeName: GrabObject, Assembly-CSharp
+        m_MethodName: Delete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2663,8 +2832,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7346488073879018754, guid: 7ddfa3a1d18174043aab251be6df3a0e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346488073879018754, guid: 7ddfa3a1d18174043aab251be6df3a0e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2546
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346488073879018754, guid: 7ddfa3a1d18174043aab251be6df3a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0000054169
       objectReference: {fileID: 0}
     - target: {fileID: 7346488073879018754, guid: 7ddfa3a1d18174043aab251be6df3a0e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3817,11 +3994,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2388885428597254105, guid: 20e9d9d21411d9640b6acbb0ec9bad52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2388885428597254105, guid: 20e9d9d21411d9640b6acbb0ec9bad52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: 2388885428597254105, guid: 20e9d9d21411d9640b6acbb0ec9bad52, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3888,3 +4065,5 @@ SceneRoots:
   - {fileID: 1059143443}
   - {fileID: 1119782608}
   - {fileID: 1328364509}
+  - {fileID: 393226771}
+  - {fileID: 714575572}
