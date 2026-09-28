@@ -1,17 +1,28 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using TMPro;
 
-// Cerebro de la granja: lleva la lista de tareas del dia, marca las que se completan,
-// suma monedas, cambia la hora del dia y le dice a Pancho que decir.
 public class TareasManager : MonoBehaviour
 {
     [System.Serializable]
     public class Tarea
     {
         public string nombre;
-        [TextArea(2, 4)] public string mensajePancho;   // lo que dice Pancho al completar esta tarea
-        public GameObject[] activarAlCompletar;          // cosas que aparecen al completarla (letrero "Hecho", productos...)
+
+        [Tooltip("Donde se para Pancho para explicar esta tarea (un objeto vacio en la estacion)")]
+        public Transform lugarPancho;
+
+        [Tooltip("Lo que dice Pancho en la estacion: que hay que hacer y como")]
+        [TextArea(2, 4)] public string instruccion;
+
+        [Tooltip("Lo que dice Pancho al terminar la tarea (las monedas se agregan solas)")]
+        [FormerlySerializedAs("mensajePancho")]
+        [TextArea(2, 4)] public string felicitacion;
+
+        [Tooltip("Cosas que aparecen al completarla (productos, letreros...)")]
+        public GameObject[] activarAlCompletar;
+
         [HideInInspector] public bool completada;
     }
 
@@ -27,9 +38,12 @@ public class TareasManager : MonoBehaviour
     public TMP_Text textoMonedas;
 
     [Header("Pancho")]
+    public Transform pancho;
     public TMP_Text textoPancho;
-    [TextArea(2, 4)] public string mensajeInicial = "¡Buenos días! Estas son las tareas de hoy. Cada una vale 10 monedas. ¡Empecemos!";
+    [TextArea(2, 4)] public string mensajeInicial = "¡Buenos días! Soy Pancho. Hoy es la feria y Don Tomás nos necesita. Mira el tablero para ver tus tareas. ¡Te espero donde los caballos!";
     [TextArea(2, 4)] public string mensajeFinal = "¡Todo listo! ¡Nos vamos a la feria!";
+    [Tooltip("Segundos que Pancho se queda felicitando antes de irse a la siguiente estacion")]
+    public float esperaAntesDeMover = 5f;
 
     [Header("Al terminar todas las tareas")]
     public GameObject[] activarAlTerminarTodo;
@@ -56,6 +70,10 @@ public class TareasManager : MonoBehaviour
 
     private int completadas;
     private float giroSolY;
+    private bool recorridoEmpezado;
+    private Vector3 escalaPancho;
+    private Coroutine rutinaDia;
+    private Coroutine rutinaPancho;
 
     void Start()
     {
@@ -70,43 +88,61 @@ public class TareasManager : MonoBehaviour
             if (go != null) go.SetActive(false);
 
         if (sol != null) giroSolY = sol.transform.eulerAngles.y;
+        if (pancho != null) escalaPancho = pancho.localScale;
 
-        if (textoPancho != null) textoPancho.text = mensajeInicial + SiguienteTarea();
+        Decir(mensajeInicial);
         ActualizarTablero();
         AplicarMomento(0);
     }
 
-    // Se llama desde los eventos del Inspector (por ejemplo "Al Completar" de CajaCosecha).
-    // El numero es el mismo del tablero: 1, 2, 3...
+    
+    public void EmpezarRecorrido()
+    {
+        if (recorridoEmpezado || tareas.Length == 0) return;
+        recorridoEmpezado = true;
+
+        if (rutinaPancho != null) StopCoroutine(rutinaPancho);
+        rutinaPancho = StartCoroutine(MoverPancho(0f, tareas[0].lugarPancho, tareas[0].instruccion));
+    }
+
+    
     public void CompletarTarea(int numero)
     {
         int i = numero - 1;
         if (i < 0 || i >= tareas.Length) return;
-        if (tareas[i].completada) return;   // evita contarla dos veces
+        if (tareas[i].completada) return;   
 
         tareas[i].completada = true;
         completadas++;
         MonedasGanadas += monedasPorTarea;
+        recorridoEmpezado = true;
 
         foreach (GameObject go in tareas[i].activarAlCompletar)
             if (go != null) go.SetActive(true);
 
         ActualizarTablero();
-        StopAllCoroutines();
-        StartCoroutine(TransicionMomento(completadas));
+        if (rutinaDia != null) StopCoroutine(rutinaDia);
+        rutinaDia = StartCoroutine(TransicionMomento(completadas));
+
+        if (rutinaPancho != null) StopCoroutine(rutinaPancho);
 
         if (completadas >= tareas.Length)
         {
+            // Ultima tarea: Pancho se queda y anuncia la feria
             foreach (GameObject go in activarAlTerminarTodo)
                 if (go != null) go.SetActive(true);
-            if (textoPancho != null) textoPancho.text = mensajeFinal;
+            Decir(mensajeFinal);
             Sonar(sonidoTodoCompletado != null ? sonidoTodoCompletado : sonidoTareaCompletada);
         }
         else
         {
-            if (textoPancho != null)
-                textoPancho.text = tareas[i].mensajePancho + "\n+" + monedasPorTarea + " monedas" + SiguienteTarea();
+            // Pancho felicita, espera un momento y se va a la siguiente estacion pendiente
+            Decir("<b>+" + monedasPorTarea + " monedas</b>\n" + tareas[i].felicitacion);
             Sonar(sonidoTareaCompletada);
+
+            Tarea siguiente = SiguienteTarea();
+            if (siguiente != null)
+                rutinaPancho = StartCoroutine(MoverPancho(esperaAntesDeMover, siguiente.lugarPancho, siguiente.instruccion));
         }
     }
 
@@ -116,11 +152,48 @@ public class TareasManager : MonoBehaviour
         return i >= 0 && i < tareas.Length && tareas[i].completada;
     }
 
-    private string SiguienteTarea()
+    private Tarea SiguienteTarea()
     {
         foreach (Tarea t in tareas)
-            if (!t.completada) return "\n\nSiguiente: " + t.nombre;
-        return "";
+            if (!t.completada) return t;
+        return null;
+    }
+
+    private void Decir(string mensaje)
+    {
+        if (textoPancho != null) textoPancho.text = mensaje;
+    }
+
+    // Pancho se encoge ("¡puf!"), aparece en el nuevo lugar y crece otra vez
+    private IEnumerator MoverPancho(float espera, Transform lugar, string mensaje)
+    {
+        if (espera > 0f) yield return new WaitForSeconds(espera);
+
+        if (pancho == null || lugar == null)
+        {
+            Decir(mensaje);
+            yield break;
+        }
+
+        yield return Escalar(escalaPancho, Vector3.zero, 0.25f);
+
+        pancho.SetPositionAndRotation(lugar.position, lugar.rotation);
+        Decir(mensaje);
+
+        yield return Escalar(Vector3.zero, escalaPancho * 1.15f, 0.2f);
+        yield return Escalar(escalaPancho * 1.15f, escalaPancho, 0.1f);
+    }
+
+    private IEnumerator Escalar(Vector3 desde, Vector3 hasta, float duracion)
+    {
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duracion;
+            pancho.localScale = Vector3.Lerp(desde, hasta, t);
+            yield return null;
+        }
+        pancho.localScale = hasta;
     }
 
     private void ActualizarTablero()
